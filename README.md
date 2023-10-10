@@ -107,8 +107,9 @@ int division(int dividend, int divisor) {
 
 **To use the RISC-V gcc compiler or simulator**
 ```
-   riscv32-unkown-elf-gcc -march=rv32i -mabi=ilp32 -ffreestanding  -nostdlib -o ./output.o san_disp.c
-riscv32-unknown-elf-objdump -d  -r output.o > assembly.txt
+  riscv32-unknown-elf-gcc -march=rv32i -mabi=ilp32 -ffreestanding -nostdlib -o ./out filename.c
+  riscv32-unknown-elf-objdump -d -r out > assembly.txt
+
 ```
 
 
