@@ -28,26 +28,29 @@ In the code, the “duration” variable stores the time taken by the sound wave
 
 ## C Code
 ```
+
+
+// Global variables
 int trigger;
 int echo;
 int pulse_counter = 0;
 int switch_val;
+int mask = 0xFF; // Initialize mask with a value (adjust as needed)
 
+// Function prototypes
 void read();
 void pulse_count();
-void distance_calc();
 void trigger_send();
+void distance_calc();
 void delay_10us();
 void delay_100ms();
-
-// Function to simulate displaying distance on an LCD
-void lcd_display_distance(float distance) {
-    // Replace this function with your actual LCD display code
-    // Example: lcd_set_cursor(row, col); lcd_print("Distance: %.2f cm", distance);
-    // Make sure to initialize and configure your LCD library appropriately
-}
+void lcd_display_distance(float distance);
 
 int main() {
+    // Initialize your hardware and setup your LCD display here
+    // Configure GPIO pins for trigger and echo
+    // Initialize LCD display
+
     while (1) {
         read();
     }
@@ -67,9 +70,12 @@ void read() {
 
 void pulse_count() {
     trigger_send();
-    asm(
-        "andi %0, x30, 2\n\t"
-        : "=r"(echo));
+    asm volatile(
+        "and %0, x30, %1\n\t"
+        "or %0, x30, %2\n\t"
+        : "=r"(echo)
+        : "r"(echo), "r"(mask)
+    );
     while (echo) {
         pulse_counter = pulse_counter + 1;
     }
@@ -79,34 +85,60 @@ void pulse_count() {
 void trigger_send() {
     int trigger_reg;
     trigger = 1;
-    trigger_reg = trigger * 8;
+
+    // Use inline assembly for trigger signal generation
     asm(
-        "or x30, x30, %0\n\t"
-        : "=r"(switch_val));
+        "and %0, x30, %1\n\t"
+        "or %0, x30, %2\n\t"
+        : "=r"(trigger_reg)
+        : "r"(trigger), "r"(mask)
+    );
+
     delay_10us();
     trigger = 0;
-    trigger_reg = trigger * 8;
+
+    // Use inline assembly for trigger signal deactivation
     asm(
-        "or x30, x30, %0\n\t"
-        : "=r"(switch_val));
+        "and %0, x30, %1\n\t"
+        "or %0, x30, %2\n\t"
+        : "=r"(trigger_reg)
+        : "r"(trigger), "r"(mask)
+    );
 }
 
 void distance_calc() {
     float distance;
     distance = pulse_counter * 0.0344 * 0.5;
-    
+
     // Call the LCD display function to show the distance
     lcd_display_distance(distance);
 }
 
+// Delay function for approximately 10 microseconds
 void delay_10us() {
-    for (int i = 0; i < 10; i++);
+    for (int i = 0; i < 10; i++) {
+        // Implement your microsecond delay logic here
+        // Adjust this loop for your specific microcontroller clock speed
+    }
 }
 
+// Delay function for approximately 100 milliseconds
 void delay_100ms() {
-    for (int i = 0; i < 100000; i++);
+    for (int i = 0; i < 100000; i++) {
+        // Implement your millisecond delay logic here
+        // Adjust this loop for your specific microcontroller clock speed
+    }
 }
 
+// Function to simulate displaying distance on an LCD
+void lcd_display_distance(float distance) {
+    // Replace this function with your actual LCD display code
+    // Example: lcd_set_cursor(row, col); lcd_print("Distance: %.2f cm", distance);
+    // Make sure to initialize and configure your LCD library appropriately
+
+    // For this example, we'll print to the console
+    printf("Distance: %.2f cm\n", distance);
+}
 ```
 
 ## Assembly Code
