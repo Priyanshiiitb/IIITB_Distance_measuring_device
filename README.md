@@ -205,3 +205,30 @@ Disassembly of section .text:
    101b4:	03010113          	add	sp,sp,48
    101b8:	00008067          	ret
 ```
+## Number of unique instruction
+```
+Number of different instructions: 12
+List of unique instructions:
+add
+addi
+and
+bgeu
+j
+li
+lw
+mv
+or
+sll
+sub
+sw
+```
+## Word of thanks
+I sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
+
+## Acknowledgement
+1. Kunal Ghosh, VSD Corp. Pvt. Ltd.
+2. Skywater Foundry
+3. Mayank Kabra
+
+## Reference
+1. https://github.com/SakethGajawada/RISCV-GNU
