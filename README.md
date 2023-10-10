@@ -23,7 +23,8 @@ In the code, the “duration” variable stores the time taken by the sound wave
 
 ## Circuit Diagram
 
-![Screenshot from 2023-10-05 15-40-41](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/17ee778d-7e91-48fd-bb0b-5dc389bdd2e6)
+![Screenshot from 2023-10-10 21-17-19](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/aaa1e025-f71d-4412-9e55-24eeb39c2bd1)
+
 
 
 ## C Code
