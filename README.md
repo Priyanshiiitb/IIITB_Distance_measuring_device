@@ -118,7 +118,8 @@ riscv64-unknown-elf-objdump -d  -r output.o > assembly.txt
 
 ```
 
-output.o:     file format elf32-littleriscv
+
+out:     file format elf32-littleriscv
 
 
 Disassembly of section .text:
