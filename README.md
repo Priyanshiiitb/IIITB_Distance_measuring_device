@@ -211,24 +211,27 @@ Disassembly of section .text:
 ```
 ## Number of unique instruction
 ```
-Number of different instructions: 16
+Number of different instructions: 18
 List of unique instructions:
+add
+ret
+jal
+mv
+sub
 lui
-sw
-j
+lw
 bgeu
 bge
-mv
-or
-li
-jal
+j
 and
-ret
-add
 bne
-lw
-sll
-sub
+andi
+or
+addi
+slli
+sw
+li
+
 ```
 ## Word of thanks
 I sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
