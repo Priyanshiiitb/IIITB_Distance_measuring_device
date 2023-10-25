@@ -234,6 +234,58 @@ sw
 li
 
 ```
+## Spike Code-
+```
+#include <stdio.h>
+
+int division(int dividend, int divisor);
+
+int main() {
+    int clk_freq = 10000000;
+    int distance;
+    int i;
+    int echo_local;
+
+    while (1) {
+        int trig_local = 1;
+        // Delay
+        for (i = 0; i < 10000000; i++);
+
+        int trig_local2 = 0;
+        // Delay
+        i = 0;
+
+        echo_local = trig_local2;
+
+        while (echo_local != 1) {
+            echo_local = trig_local2;
+        }
+
+        int duration = division(i, clk_freq);
+        distance = duration * 172;
+        
+        // Display the calculated distance
+        printf("Distance: %d\n", distance);
+    }
+
+    return 0;
+}
+
+int division(int dividend, int divisor) {
+    int quotient = 0;
+
+    while (dividend >= divisor) {
+        dividend -= divisor;
+        quotient++;
+    }
+
+    return quotient;
+}
+```
+### output-
+![Screenshot from 2023-10-25 17-16-08](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/dfe36923-7f43-49b4-947f-66ad3bfc6443)
+
+
 ## Word of thanks
 I sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
 
