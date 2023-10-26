@@ -303,6 +303,8 @@ int division(int dividend, int divisor) {
 
 ![Screenshot from 2023-10-26 11-49-53](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/8d4c83ab-5740-4f3c-aa30-c3b59f8abd0e)
 
+### Word of Thanks
+
 I sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
 
 ## Acknowledgement
