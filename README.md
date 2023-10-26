@@ -241,30 +241,36 @@ li
 int division(int dividend, int divisor);
 
 int main() {
+    int trig = 1;  // Simulate trig as 1
+    int echo = 0;  // Initialize echo to 0
     int clk_freq = 10000000;
     int distance;
-    int i;
-    int echo_local;
+    unsigned int i;
+    unsigned int duration;
 
     while (1) {
-        int trig_local = 1;
-        // Delay
+        // Simulate changing the value of trig
+        int trig_local = 0;
         for (i = 0; i < 10000000; i++);
+        trig = trig_local;
 
-        int trig_local2 = 0;
-        // Delay
         i = 0;
+        int echo_local = 0;
 
-        echo_local = trig_local2;
-
+        // Simulate the process of waiting for echo_local to become 1
         while (echo_local != 1) {
-            echo_local = trig_local2;
+            i++;
+
+            // Simulate a change in echo_local
+            if (i == 5000000) {
+                echo_local = 1;
+            }
         }
 
-        int duration = division(i, clk_freq);
+        duration = division(i, clk_freq);
         distance = duration * 172;
-        
-        // Display the calculated distance
+
+        // Continue with your logic or print the distance
         printf("Distance: %d\n", distance);
     }
 
@@ -283,7 +289,8 @@ int division(int dividend, int divisor) {
 }
 ```
 ### output-
-![Screenshot from 2023-10-25 17-16-08](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/dfe36923-7f43-49b4-947f-66ad3bfc6443)
+
+![Screenshot from 2023-10-26 11-30-39](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/0f2d7e03-1db4-4f1a-b255-3b7d1010ded5)
 
 
 ## Word of thanks
