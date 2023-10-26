@@ -241,37 +241,48 @@ li
 int division(int dividend, int divisor);
 
 int main() {
-    int trig = 1;  // Simulate trig as 1
-    int echo = 0;  // Initialize echo to 0
     int clk_freq = 10000000;
-    int distance;
+    int distance = 0; // Initialize distance to 0
+    int echo = 0;     // Initialize echo to 0
+    int trig = 1;     // Simulate trig as 1
     unsigned int i;
     unsigned int duration;
+    int maxIterations = 10;  // Set the maximum number of iterations
 
-    while (1) {
-        // Simulate changing the value of trig
-        int trig_local = 0;
-        for (i = 0; i < 10000000; i++);
-        trig = trig_local;
+    for (int iteration = 0; iteration < maxIterations; iteration++) {
+        // Simulate a change in echo_local using inline assembly
+        asm volatile(
+            "li %0, 1\n\t"  // Simulate echo_local becoming 1
+            : "=r"(echo)
+            :
+        );
+
+        // Simulate changing the value of trig using inline assembly
+        asm volatile(
+            "li %0, 0\n\t"  // Simulate trig becoming 0
+            : "=r"(trig)
+            :
+        );
 
         i = 0;
-        int echo_local = 0;
 
         // Simulate the process of waiting for echo_local to become 1
-        while (echo_local != 1) {
+        while (echo != 1) {
             i++;
 
-            // Simulate a change in echo_local
-            if (i == 5000000) {
-                echo_local = 1;
-            }
+            // Simulate a change in echo_local using inline assembly
+            asm volatile(
+                "li %0, 1\n\t"  // Simulate echo_local becoming 1
+                : "=r"(echo)
+                :
+            );
         }
 
         duration = division(i, clk_freq);
-        distance = duration * 172;
+        distance += duration * 172; // Simulate a change in distance
 
-        // Continue with your logic or print the distance
-        printf("Distance: %d\n", distance);
+        // Print the values of echo, trig, and distance
+        printf("Echo: %d, Trig: %d, Distance: %d\n", echo, trig, distance);
     }
 
     return 0;
@@ -290,10 +301,8 @@ int division(int dividend, int divisor) {
 ```
 ### output-
 
-![Screenshot from 2023-10-26 11-30-39](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/0f2d7e03-1db4-4f1a-b255-3b7d1010ded5)
+![Screenshot from 2023-10-26 11-49-53](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/8d4c83ab-5740-4f3c-aa30-c3b59f8abd0e)
 
-
-## Word of thanks
 I sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
 
 ## Acknowledgement
