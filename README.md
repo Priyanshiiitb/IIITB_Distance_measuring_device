@@ -44,6 +44,8 @@ int main() {
 
     while (1) {
         int trig_local = 1; // Declare trig as a local variable
+
+        // Apply a bitwise mask to manipulate bit 0 of x30
         asm volatile(
             "and x30, x30, %1\n\t"
             "or x30, x30, %0\n\t"
@@ -55,6 +57,8 @@ int main() {
         for (i = 0; i < 10000000; i++);
 
         int trig_local2 = 0; // Declare trig as a local variable
+
+        // Apply a bitwise mask to manipulate bit 0 of x30
         asm volatile(
             "and x30, x30, %1\n\t"
             "or x30, x30, %0\n\t"
@@ -67,6 +71,8 @@ int main() {
         int echo_local;
         asm volatile(
             "addi x10, x30, 0\n\t"
+
+            // Apply a bitwise mask to extract bit 1 of x10
             "and %0, x10, 2\n\t"
             : "=r"(echo_local)
             :
@@ -101,8 +107,9 @@ int division(int dividend, int divisor) {
 
     return quotient;
 }
+
 ```
-## Assembly Code
+
 
 ### Assembly Code Generation
 
@@ -113,13 +120,14 @@ riscv64-unknown-elf-objdump -d  -r output.o > assembly.txt
 
 ```
 
-
+## Assembly Code
 
 
 ```
 
 
-out:     file format elf32-littleriscv
+
+output.o:     file format elf32-littleriscv
 
 
 Disassembly of section .text:
@@ -209,6 +217,7 @@ Disassembly of section .text:
    10190:	02c12403          	lw	s0,44(sp)
    10194:	03010113          	addi	sp,sp,48
    10198:	00008067          	ret
+
 ```
 ## Number of unique instruction
 ```
@@ -302,6 +311,10 @@ int division(int dividend, int divisor) {
 ### output-
 
 ![Screenshot from 2023-10-26 11-49-53](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/8d4c83ab-5740-4f3c-aa30-c3b59f8abd0e)
+
+
+![Screenshot from 2023-10-30 10-33-46](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/445c0bfa-faa7-4eb8-a65f-109f5bb35924)
+
 
 ### Word of Thanks
 
