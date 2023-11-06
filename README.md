@@ -347,6 +347,13 @@ iverilog -o test synth_processor_test.v testbench.v sky130_sram_1kbyte_1rw1r_32x
 ```
 ![image](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/1855c452-6633-47d0-a868-906315afc951)
 
+Now using below command we can see the wrapper module :
+
+```
+show wrapper
+
+```
+![Screenshot from 2023-11-06 09-41-23](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/105132ec-06ab-4cea-8b72-fbb5b7a60dc9)
 
 ### Word of Thanks
 
