@@ -345,6 +345,7 @@ iverilog -o test synth_processor_test.v testbench.v sky130_sram_1kbyte_1rw1r_32x
 ./test
 
 ```
+![image](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/1855c452-6633-47d0-a868-906315afc951)
 
 
 ### Word of Thanks
