@@ -362,7 +362,8 @@ I sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete th
 ## Acknowledgement
 1. Kunal Ghosh, VSD Corp. Pvt. Ltd.
 2. Skywater Foundry
-3. Mayank Kabra
+3. Mayank Kabra(Founder, Chipcron Pvt. Ltd.)
+
 
 ## Reference
 1. https://github.com/SakethGajawada/RISCV-GNU
