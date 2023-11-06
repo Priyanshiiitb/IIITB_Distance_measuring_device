@@ -336,6 +336,9 @@ write_verilog synth_processor_test.v
 ```
 ![Screenshot from 2023-11-06 09-21-15](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/a3d0a26e-2572-4fbd-8327-0c19fe4a788b)
 
+![Screenshot from 2023-11-04 10-50-22](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/7f8c6864-4b16-4857-84a5-4ef294cf5b93)
+
+
 ### Word of Thanks
 
 I sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
