@@ -315,6 +315,13 @@ int division(int dividend, int divisor) {
 
 ![Screenshot from 2023-10-30 10-33-46](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/445c0bfa-faa7-4eb8-a65f-109f5bb35924)
 
+### Functional simulation--
+
+Here below input wire is 0 which is echo pin so outputs (buzzer and led) are also 00. Here clk , ID_instruction and write_done also shown.
+
+![image](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/dfad7254-ce13-4cb6-84f6-5ea74ab618d4)
+
+
 ### Synthesis-
 Synthesis is the process of converting RTL code into a gate-level netlist. It involves mapping the functionality specified in the RTL code to a library of standard cells, such as NAND, NOR, XOR gates, etc., provided by the target technology. Synthesis takes place in multiple steps :
 
@@ -326,15 +333,19 @@ Synthesis is the process of converting RTL code into a gate-level netlist. It in
 Gate level Simulation(GLS) is done at the late level of Design cycle. This is run after the RTL code is synthesized into Netlist. Netlist is translation from RTL into Gates and connection wirings with full functional and timing behaviour. Netlist is logically same as RTL code, therefore, same test bench can be used for it.We perform this to verify logical correctness of the design after synthesizing it. Also ensuring the timing of the design is met. Folllowing are the commands to we need to convert Rtl code to netlist in yosys for that commands are :
 
 ```
-read_liberty -lib sky130_fd_sc_hd__tt_025C_1v80_256.lib 
-read_verilog processor.v 
-synth -top wrapper
-dfflibmap -liberty sky130_fd_sc_hd__tt_025C_1v80_256.lib 
-abc -liberty sky130_fd_sc_hd__tt_025C_1v80_256.lib
-write_verilog synth_processor_test.v
-
+  yosys> read_liberty -lib ./Downloads/sky130_fd_sc_hd__tt_025C_1v80_256.lib
+  yosys> read_verilog processor.v
+  yosys> synth -top wrapper
+  yosys> dfflibmap -liberty ./Downloads/sky130_fd_sc_hd__tt_025C_1v80_256.lib
+  yosys> abc -liberty ./Downloads/sky130_fd_sc_hd__tt_025C_1v80_256.lib
+  yosys> write_verilog synth_processor_gls.v
+ 
 ```
-![Screenshot from 2023-11-06 09-21-15](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/a3d0a26e-2572-4fbd-8327-0c19fe4a788b)
+  
+
+
+![Screenshot from 2023-11-14 20-59-44](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/614ea8bc-8fb2-4acd-a526-056e57328111)
+
 
 ![Screenshot from 2023-11-04 10-50-22](https://github.com/Priyanshiiitb/IIITB_Distance_measuring_device/assets/140998626/7f8c6864-4b16-4857-84a5-4ef294cf5b93)
 
